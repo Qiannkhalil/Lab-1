@@ -1,0 +1,46 @@
+{
+  "patient_id": "demo-compliant",
+  "days": [
+    {
+      "label": "Day 1",
+      "meals": [
+        {
+          "name": "Breakfast",
+          "type": "breakfast",
+          "items": [
+            {"name": "Oatmeal, 1 cup cooked", "kcal": 160, "carbs_g": 28, "fiber_g": 4, "sodium_mg": 10, "sat_fat_g": 0.5, "protein_g": 6, "fat_g": 3},
+            {"name": "Boiled eggs x2", "kcal": 140, "carbs_g": 1, "sodium_mg": 140, "sat_fat_g": 3.2, "protein_g": 12, "fat_g": 10},
+            {"name": "Banana, small", "kcal": 90, "carbs_g": 23, "fiber_g": 2.6, "sodium_mg": 1}
+          ]
+        },
+        {
+          "name": "Lunch",
+          "type": "lunch",
+          "items": [
+            {"name": "Grilled chicken breast 120 g", "kcal": 200, "sodium_mg": 100, "sat_fat_g": 1, "protein_g": 37, "fat_g": 4},
+            {"name": "Brown rice, 1 cup", "kcal": 215, "carbs_g": 45, "fiber_g": 3.5, "sodium_mg": 10, "sat_fat_g": 0.4, "protein_g": 5, "fat_g": 2},
+            {"name": "Steamed vegetables, 1 cup", "kcal": 50, "carbs_g": 10, "fiber_g": 4, "sodium_mg": 60}
+          ]
+        },
+        {
+          "name": "Afternoon snack",
+          "type": "snack",
+          "items": [
+            {"name": "Apple, medium", "kcal": 95, "carbs_g": 25, "fiber_g": 4.4, "sodium_mg": 2},
+            {"name": "Unsalted almonds, 14 g", "kcal": 80, "carbs_g": 3, "fiber_g": 1.7, "sat_fat_g": 0.5, "protein_g": 3, "fat_g": 7, "tags": ["unsalted"]}
+          ]
+        },
+        {
+          "name": "Dinner",
+          "type": "dinner",
+          "items": [
+            {"name": "Baked fish 150 g", "kcal": 210, "sodium_mg": 120, "sat_fat_g": 1.5, "protein_g": 34, "fat_g": 7},
+            {"name": "Sweet potato 150 g", "kcal": 135, "carbs_g": 31, "fiber_g": 4.5, "sodium_mg": 70},
+            {"name": "Green salad with olive oil", "kcal": 120, "carbs_g": 8, "fiber_g": 3, "sodium_mg": 40, "sat_fat_g": 1.5, "fat_g": 10},
+            {"name": "Whole wheat bread, 1 slice", "kcal": 80, "carbs_g": 14, "fiber_g": 2, "sodium_mg": 140, "sat_fat_g": 0.2, "protein_g": 4, "fat_g": 1}
+          ]
+        }
+      ]
+    }
+  ]
+}

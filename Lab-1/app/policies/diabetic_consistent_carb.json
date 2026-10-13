@@ -1,0 +1,146 @@
+{
+  "id": "diabetic_consistent_carb",
+  "name": "Diabetic Hospital Diet (Consistent Carbohydrate)",
+  "version": "1.0.0",
+  "description": "Consistent-carbohydrate meal pattern with limits on added sugar, saturated fat and sodium, and a fiber target.",
+  "disclaimer": "Thresholds are illustrative and codified from public guidance. Individual carbohydrate targets should be set by a clinical dietitian; verify against your institution's approved diet manual before clinical use.",
+  "rules": [
+    {
+      "id": "DM-01",
+      "title": "Carbohydrate per main meal",
+      "type": "limit",
+      "scope": "meal",
+      "applies_to": ["breakfast", "lunch", "dinner"],
+      "metric": "carbs_g",
+      "op": "between",
+      "min": 45,
+      "max": 60,
+      "severity": "error",
+      "evidence": {
+        "source": "ADA Standards of Care: Nutrition therapy; consistent-carbohydrate meal planning",
+        "note": "45-60 g carbohydrate per meal is a widely used starting range for adults; individualize with a dietitian."
+      },
+      "remedy": "Adjust starch, fruit or dairy portions to bring the meal into the 45-60 g range."
+    },
+    {
+      "id": "DM-02",
+      "title": "Carbohydrate per snack",
+      "type": "limit",
+      "scope": "meal",
+      "applies_to": ["snack"],
+      "metric": "carbs_g",
+      "op": "between",
+      "min": 15,
+      "max": 30,
+      "severity": "warning",
+      "evidence": {
+        "source": "ADA Standards of Care: Nutrition therapy; consistent-carbohydrate meal planning",
+        "note": "Snacks commonly contain 15-30 g carbohydrate in consistent-carbohydrate plans."
+      },
+      "remedy": "Size the snack to 15-30 g carbohydrate, pairing with protein or fat if needed."
+    },
+    {
+      "id": "DM-03",
+      "title": "Added sugar share of energy",
+      "type": "limit",
+      "scope": "day",
+      "metric": "pct_kcal_added_sugar",
+      "op": "<=",
+      "value": 10,
+      "severity": "error",
+      "evidence": {
+        "source": "WHO Guideline: Sugars intake for adults and children (2015); US Dietary Guidelines for Americans",
+        "note": "Free/added sugars should be less than 10% of total energy intake."
+      },
+      "remedy": "Remove sweetened beverages, desserts and sweetened condiments."
+    },
+    {
+      "id": "DM-04",
+      "title": "Saturated fat share of energy",
+      "type": "limit",
+      "scope": "day",
+      "metric": "pct_kcal_sat_fat",
+      "op": "<=",
+      "value": 10,
+      "severity": "error",
+      "evidence": {
+        "source": "ADA Standards of Care; US Dietary Guidelines for Americans",
+        "note": "Limit saturated fat to less than 10% of daily calories."
+      },
+      "remedy": "Swap fatty meats and full-fat dairy for lean protein and unsaturated fats."
+    },
+    {
+      "id": "DM-05",
+      "title": "Fiber density",
+      "type": "limit",
+      "scope": "day",
+      "metric": "fiber_per_1000kcal",
+      "op": ">=",
+      "value": 14,
+      "severity": "warning",
+      "evidence": {
+        "source": "US Dietary Guidelines for Americans",
+        "note": "Aim for about 14 g fiber per 1,000 kcal."
+      },
+      "remedy": "Add whole grains, legumes, vegetables or fruit."
+    },
+    {
+      "id": "DM-06",
+      "title": "Daily sodium limit",
+      "type": "limit",
+      "scope": "day",
+      "metric": "sodium_mg",
+      "op": "<=",
+      "value": 2300,
+      "severity": "error",
+      "evidence": {
+        "source": "ADA Standards of Care; US Dietary Guidelines for Americans",
+        "note": "Limit sodium to less than 2,300 mg per day."
+      },
+      "remedy": "Replace processed foods with fresh alternatives."
+    },
+    {
+      "id": "DM-07",
+      "title": "Prohibited high-sugar items",
+      "type": "forbidden_tag",
+      "scope": "item",
+      "tags": ["sugar_sweetened_beverage", "regular_soda", "candy", "syrup"],
+      "severity": "error",
+      "evidence": {
+        "source": "ADA Standards of Care: Nutrition therapy",
+        "note": "Sugar-sweetened beverages and concentrated sweets should be minimized or avoided."
+      },
+      "remedy": "Substitute water, unsweetened beverages or sugar-free alternatives."
+    },
+    {
+      "id": "DM-08",
+      "title": "Minimum meal frequency",
+      "type": "limit",
+      "scope": "day",
+      "metric": "meal_count",
+      "op": ">=",
+      "value": 3,
+      "severity": "warning",
+      "evidence": {
+        "source": "Hospital diabetes nutrition practice",
+        "note": "Regular, evenly spaced eating occasions support consistent glycemic control."
+      },
+      "remedy": "Add a meal or snack so the day has at least three eating occasions."
+    },
+    {
+      "id": "DM-09",
+      "title": "Day-to-day carbohydrate consistency",
+      "type": "limit",
+      "scope": "plan",
+      "metric": "carb_day_spread_g",
+      "op": "<=",
+      "value": 45,
+      "severity": "warning",
+      "evidence": {
+        "source": "Institutional policy (configurable)",
+        "note": "Consistent-carbohydrate plans keep total daily carbohydrate similar from day to day."
+      },
+      "remedy": "Rebalance carbohydrate so the highest and lowest days differ by no more than 45 g."
+    }
+  ]
+}

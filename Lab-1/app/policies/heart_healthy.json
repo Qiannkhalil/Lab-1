@@ -1,0 +1,97 @@
+{
+  "id": "heart_healthy",
+  "name": "Heart-Healthy Diet (DASH-style)",
+  "version": "1.0.0",
+  "description": "Limits sodium, saturated fat and trans fat, and sets a fiber target for cardiovascular risk reduction.",
+  "disclaimer": "Thresholds are illustrative and codified from public guidance. Verify against your institution's approved diet manual before clinical use.",
+  "rules": [
+    {
+      "id": "HH-01",
+      "title": "Daily sodium limit",
+      "type": "limit",
+      "scope": "day",
+      "metric": "sodium_mg",
+      "op": "<=",
+      "value": 2300,
+      "severity": "error",
+      "evidence": {
+        "source": "DASH diet (NHLBI); US Dietary Guidelines for Americans",
+        "note": "Standard DASH allows up to 2,300 mg sodium per day."
+      },
+      "remedy": "Choose fresh foods and no-salt-added products."
+    },
+    {
+      "id": "HH-02",
+      "title": "Saturated fat share of energy",
+      "type": "limit",
+      "scope": "day",
+      "metric": "pct_kcal_sat_fat",
+      "op": "<=",
+      "value": 6,
+      "severity": "warning",
+      "evidence": {
+        "source": "AHA Dietary Guidance to Improve Cardiovascular Health; DASH diet",
+        "note": "Aim for roughly 5-6% of calories from saturated fat."
+      },
+      "remedy": "Replace butter, fatty meat and full-fat dairy with unsaturated fat sources."
+    },
+    {
+      "id": "HH-03",
+      "title": "Trans fat share of energy",
+      "type": "limit",
+      "scope": "day",
+      "metric": "pct_kcal_trans_fat",
+      "op": "<=",
+      "value": 1,
+      "severity": "error",
+      "evidence": {
+        "source": "WHO: Trans fat intake guidance",
+        "note": "Trans fat intake should be less than 1% of total energy."
+      },
+      "remedy": "Remove foods made with partially hydrogenated oils."
+    },
+    {
+      "id": "HH-04",
+      "title": "Fiber density",
+      "type": "limit",
+      "scope": "day",
+      "metric": "fiber_per_1000kcal",
+      "op": ">=",
+      "value": 14,
+      "severity": "warning",
+      "evidence": {
+        "source": "US Dietary Guidelines for Americans",
+        "note": "Aim for about 14 g fiber per 1,000 kcal."
+      },
+      "remedy": "Add whole grains, legumes, vegetables or fruit."
+    },
+    {
+      "id": "HH-05",
+      "title": "Discouraged processed foods",
+      "type": "forbidden_tag",
+      "scope": "item",
+      "tags": ["cured_meat", "deep_fried", "salty_snack"],
+      "severity": "warning",
+      "evidence": {
+        "source": "AHA Dietary Guidance to Improve Cardiovascular Health",
+        "note": "Limit processed meats and fried foods."
+      },
+      "remedy": "Choose lean, unprocessed proteins and baked or steamed preparations."
+    },
+    {
+      "id": "HH-06",
+      "title": "Minimum meal frequency",
+      "type": "limit",
+      "scope": "day",
+      "metric": "meal_count",
+      "op": ">=",
+      "value": 3,
+      "severity": "warning",
+      "evidence": {
+        "source": "Hospital nutrition care standards",
+        "note": "At least three eating occasions are expected per day."
+      },
+      "remedy": "Add a meal or snack."
+    }
+  ]
+}

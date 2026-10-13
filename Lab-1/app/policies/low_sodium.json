@@ -1,0 +1,99 @@
+{
+  "id": "low_sodium",
+  "name": "Low-Sodium Hospital Diet (2 g sodium)",
+  "version": "1.0.0",
+  "description": "Restricts sodium to 2,000 mg/day, distributed across meals, while guarding against under-eating on a restricted diet.",
+  "disclaimer": "Thresholds are illustrative and codified from public guidance. Verify against your institution's approved diet manual before clinical use.",
+  "rules": [
+    {
+      "id": "LS-01",
+      "title": "Daily sodium limit",
+      "type": "limit",
+      "scope": "day",
+      "metric": "sodium_mg",
+      "op": "<=",
+      "value": 2000,
+      "severity": "error",
+      "evidence": {
+        "source": "WHO Guideline: Sodium intake for adults and children (2012)",
+        "note": "Adults should consume less than 2 g sodium per day."
+      },
+      "remedy": "Replace high-sodium items with fresh or no-salt-added alternatives; remove added salt."
+    },
+    {
+      "id": "LS-02",
+      "title": "Main meal sodium cap",
+      "type": "limit",
+      "scope": "meal",
+      "applies_to": ["breakfast", "lunch", "dinner"],
+      "metric": "sodium_mg",
+      "op": "<=",
+      "value": 700,
+      "severity": "warning",
+      "evidence": {
+        "source": "Common institutional practice for 2 g Na diets",
+        "note": "Spreading sodium roughly evenly (about 600-700 mg per main meal) keeps the daily total achievable."
+      },
+      "remedy": "Rebalance sodium across meals so no single meal consumes most of the daily allowance."
+    },
+    {
+      "id": "LS-03",
+      "title": "Snack sodium cap",
+      "type": "limit",
+      "scope": "meal",
+      "applies_to": ["snack"],
+      "metric": "sodium_mg",
+      "op": "<=",
+      "value": 200,
+      "severity": "warning",
+      "evidence": {
+        "source": "Common institutional practice for 2 g Na diets",
+        "note": "Snacks are typically allotted a small share of the daily sodium budget."
+      },
+      "remedy": "Choose unsalted snacks such as fresh fruit or unsalted nuts."
+    },
+    {
+      "id": "LS-04",
+      "title": "Prohibited high-sodium foods",
+      "type": "forbidden_tag",
+      "scope": "item",
+      "tags": ["cured_meat", "instant_noodles", "salty_snack", "regular_canned_soup", "salt_packet", "pickled"],
+      "severity": "error",
+      "evidence": {
+        "source": "AHA: Sodium and salt guidance",
+        "note": "Processed and cured foods, canned soups and salty snacks are major sodium sources."
+      },
+      "remedy": "Swap for fresh, unprocessed or no-salt-added versions."
+    },
+    {
+      "id": "LS-05",
+      "title": "Minimum meal frequency",
+      "type": "limit",
+      "scope": "day",
+      "metric": "meal_count",
+      "op": ">=",
+      "value": 3,
+      "severity": "warning",
+      "evidence": {
+        "source": "Hospital nutrition care standards",
+        "note": "Restricted diets raise the risk of inadequate intake; at least three eating occasions are expected."
+      },
+      "remedy": "Add a meal or snack to the day."
+    },
+    {
+      "id": "LS-06",
+      "title": "Minimum energy intake (adequacy)",
+      "type": "limit",
+      "scope": "day",
+      "metric": "kcal",
+      "op": ">=",
+      "value": 1200,
+      "severity": "warning",
+      "evidence": {
+        "source": "Hospital malnutrition-prevention practice",
+        "note": "Diet restrictions should not result in inadequate energy intake."
+      },
+      "remedy": "Increase portions or add compliant, energy-dense foods."
+    }
+  ]
+}
